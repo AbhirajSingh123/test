@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coaching Center - Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Coaching Center Admin</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">View Website</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="adminLogout">Logout</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="admin-container">
+    <!-- Login Page -->
+    <div id="login-page" class="d-flex align-items-center justify-content-center vh-100">
+        <div class="card p-4 shadow-sm" style="width: 25rem;">
+            <h3 class="card-title text-center mb-4">Admin Login</h3>
+            <form id="loginForm">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" value="admin" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" value="admin123" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+                <div id="loginError" class="text-danger mt-2 text-center d-none">Invalid username or password.</div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="admin-dashboard" class="d-none">
+        <div class="d-flex">
+            <div class="sidebar bg-dark text-white p-3">
+                <h4 class="mb-4">Admin Panel</h4>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link text-white active" href="#" data-section="home"><i class="fas fa-home me-2"></i> Manage Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#" data-section="about"><i class="fas fa-info-circle me-2"></i> Manage About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#" data-section="workshops"><i class="fas fa-calendar-alt me-2"></i> Manage Workshops</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#" data-section="services"><i class="fas fa-cogs me-2"></i> Manage Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#" data-section="contact-submissions"><i class="fas fa-envelope-open-text me-2"></i> Contact Submissions</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="main-content flex-grow-1 p-4">
+                <!-- Manage Home Section -->
+                <section id="home-section" class="admin-section active">
+                    <h2>Manage Home Page</h2>
+                    <div class="card p-3 mb-4">
+                        <h4>Slider Images</h4>
+                        <p>Upload new images for the homepage slider (Please use images with a 1920x600 ratio for best results).</p>
+                        <input type="file" id="sliderImageUpload" class="form-control mb-2" multiple accept="image/*">
+                        <button class="btn btn-secondary btn-sm mb-3" id="addSliderImage">Add Selected Images</button>
+                        <div id="currentSliderImages" class="row">
+                            <!-- Existing slider images will be listed here -->
+                        </div>
+                    </div>
+
+                    <div class="card p-3 mb-4">
+                        <h4>Testimonial Content</h4>
+                        <form id="testimonialForm">
+                            <div class="mb-3">
+                                <label for="testimonialText" class="form-label">Testimonial Text</label>
+                                <textarea class="form-control" id="testimonialText" rows="3" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="testimonialAuthor" class="form-label">Author Name</label>
+                                <input type="text" class="form-control" id="testimonialAuthor" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="testimonialSource" class="form-label">Source (e.g., Former Student)</label>
+                                <input type="text" class="form-control" id="testimonialSource" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Add Testimonial</button>
+                        </form>
+                        <hr>
+                        <h5>Existing Testimonials</h5>
+                        <ul id="testimonialsList" class="list-group">
+                            <!-- Existing testimonials will be listed here -->
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Manage About Section -->
+                <section id="about-section" class="admin-section">
+                    <h2>Manage About Page</h2>
+                    <div class="card p-3">
+                        <form id="aboutForm">
+                            <div class="mb-3">
+                                <label for="aboutContent" class="form-label">About Us Content</label>
+                                <textarea class="form-control" id="aboutContent" rows="10"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save About Content</button>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- Manage Workshops Section -->
+                <section id="workshops-section" class="admin-section">
+                    <h2>Manage Workshops</h2>
+                    <div class="card p-3 mb-4">
+                        <h4>Add New Workshop</h4>
+                        <form id="addWorkshopForm">
+                            <div class="mb-3">
+                                <label for="workshopTitle" class="form-label">Title</label>
+                                <input type="text" class="form-control" id="workshopTitle" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="workshopDate" class="form-label">Date</label>
+                                <input type="date" class="form-control" id="workshopDate" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="workshopTime" class="form-label">Time</label>
+                                <input type="text" class="form-control" id="workshopTime" placeholder="e.g., 10:00 AM - 1:00 PM" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="workshopInstructor" class="form-label">Instructor</label>
+                                <input type="text" class="form-control" id="workshopInstructor" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="workshopDescription" class="form-label">Description</label>
+                                <textarea class="form-control" id="workshopDescription" rows="3" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Add Workshop</button>
+                        </form>
+                    </div>
+
+                    <div class="card p-3">
+                        <h4>Current Workshops</h4>
+                        <table class="table table-striped" id="workshopsTable">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                    <th>Instructor</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Workshops will be dynamically loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Manage Services Section -->
+                <section id="services-section" class="admin-section">
+                    <h2>Manage Services</h2>
+                    <div class="card p-3 mb-4">
+                        <h4>Add New Service</h4>
+                        <form id="addServiceForm">
+                            <div class="mb-3">
+                                <label for="serviceIcon" class="form-label">Icon Class (e.g., fas fa-graduation-cap)</label>
+                                <input type="text" class="form-control" id="serviceIcon" required>
+                                <small class="form-text text-muted">Find icons at <a href="https://fontawesome.com/v5/search?m=free" target="_blank">Font Awesome</a> or <a href="https://icons.getbootstrap.com/" target="_blank">Bootstrap Icons</a>.</small>
+                            </div>
+                            <div class="mb-3">
+                                <label for="serviceTitle" class="form-label">Title</label>
+                                <input type="text" class="form-control" id="serviceTitle" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="serviceDescription" class="form-label">Description</label>
+                                <textarea class="form-control" id="serviceDescription" rows="3" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Add Service</button>
+                        </form>
+                    </div>
+
+                    <div class="card p-3">
+                        <h4>Current Services</h4>
+                        <table class="table table-striped" id="servicesTable">
+                            <thead>
+                                <tr>
+                                    <th>Icon</th>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Services will be dynamically loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Contact Submissions Section -->
+                <section id="contact-submissions-section" class="admin-section">
+                    <h2>Contact Form Submissions</h2>
+                    <div class="card p-3">
+                        <table class="table table-striped" id="submissionsTable">
+                            <thead>
+                                <tr>
+                                    <th>Timestamp</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Message</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Submissions will be dynamically loaded here -->
+                            </tbody>
+                        </table>
+                        <button class="btn btn-danger btn-sm mt-3" id="clearSubmissions">Clear All Submissions</button>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="admin.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

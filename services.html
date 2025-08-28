@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coaching Center - Services</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Coaching Center</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="workshops.html">Workshops</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin.html">Admin</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-hero-section text-center text-white d-flex align-items-center justify-content-center">
+        <div class="container">
+            <h1>Our Services</h1>
+        </div>
+    </header>
+
+    <section class="container my-5 fade-in-section">
+        <div class="row text-center" id="services-list">
+            <!-- Services will be dynamically loaded here -->
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p>&copy; 2023 Coaching Center. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fetch services from localStorage, fallback to default if none exist
+            const services = JSON.parse(localStorage.getItem('services')) || [
+                { icon: 'fas fa-graduation-cap', title: 'Academic Coaching', description: 'Personalized coaching for various subjects and academic levels.' },
+                { icon: 'fas fa-laptop-code', title: 'Test Preparation', description: 'Specialized programs for competitive exams like SAT, GRE, JEE, NEET.' },
+                { icon: 'fas fa-file-alt', title: 'Career Counseling', description: 'Guidance on career paths, university admissions, and interview skills.' },
+                { icon: 'fas fa-language', title: 'Language Proficiency', description: 'Courses to improve English, French, German, and other language skills.' },
+                { icon: 'fas fa-brain', title: 'Skill Development', description: 'Workshops on critical thinking, problem-solving, and leadership.' },
+                { icon: 'fas fa-users-gear', title: 'Group Tutoring', description: 'Collaborative learning environment with small group sessions.' }
+            ];
+
+            const servicesList = document.getElementById('services-list');
+            servicesList.innerHTML = ''; // Clear existing (if any) to load fresh
+            if (services.length === 0) {
+                servicesList.innerHTML = '<p class="text-center text-muted col-12">No services defined yet. Please check back later!</p>';
+            } else {
+                services.forEach(service => {
+                    const serviceItem = `
+                        <div class="col-md-4 mb-4">
+                            <div class="service-card h-100"> <!-- Removed p-4 and shadow-sm as handled by .service-card -->
+                                <i class="${service.icon}"></i> <!-- Removed fa-3x mb-3 icon-outline as handled by .service-card i -->
+                                <h3>${service.title}</h3>
+                                <p>${service.description}</p>
+                            </div>
+                        </div>
+                    `;
+                    servicesList.innerHTML += serviceItem;
+                });
+            }
+        });
+    </script>
+</body>
+</html>

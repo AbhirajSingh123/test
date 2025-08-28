@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coaching Center - Workshops</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Coaching Center</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="workshops.html">Workshops</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin.html">Admin</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-hero-section text-center text-white d-flex align-items-center justify-content-center">
+        <div class="container">
+            <h1>Our Upcoming Workshops</h1>
+        </div>
+    </header>
+
+    <section class="container my-5 fade-in-section">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="workshop-list">
+            <!-- Workshop cards will be dynamically loaded here -->
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p>&copy; 2023 Coaching Center. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fetch workshops from localStorage, fallback to default if none exist
+            const workshops = JSON.parse(localStorage.getItem('workshops')) || [
+                { id: 1, title: 'Advanced Calculus', date: 'Oct 15, 2023', time: '10:00 AM - 1:00 PM', instructor: 'Dr. Anna Lee', description: 'Deep dive into advanced topics of calculus.' },
+                { id: 2, title: 'Physics Olympiad Prep', date: 'Nov 01, 2023', time: '2:00 PM - 5:00 PM', instructor: 'Prof. Mark Johnson', description: 'Intensive preparation for physics competitions.' },
+                { id: 3, title: 'Essay Writing Masterclass', date: 'Nov 10, 2023', time: '9:00 AM - 12:00 PM', instructor: 'Ms. Sarah Chen', description: 'Improve your essay writing skills for academic success.' },
+                { id: 4, title: 'Coding for Beginners', date: 'Dec 05, 2023', time: '1:00 PM - 4:00 PM', instructor: 'Mr. David Kim', description: 'Introduction to programming with practical examples.' },
+            ];
+
+            const workshopList = document.getElementById('workshop-list');
+            workshopList.innerHTML = ''; // Clear existing (if any) to load fresh
+            if (workshops.length === 0) {
+                workshopList.innerHTML = '<p class="text-center text-muted col-12">No upcoming workshops scheduled yet. Please check back later!</p>';
+            } else {
+                workshops.forEach(workshop => {
+                    const workshopCard = `
+                        <div class="col">
+                            <div class="card h-100 shadow-sm workshop-card"> <!-- Added workshop-card class -->
+                                <div class="card-body">
+                                    <h5 class="card-title">${workshop.title}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted"><i class="far fa-calendar-alt"></i> ${workshop.date}</h6>
+                                    <h6 class="card-subtitle mb-2 text-muted"><i class="far fa-clock"></i> ${workshop.time}</h6>
+                                    <p class="card-text">${workshop.description}</p>
+                                    <p class="card-text"><small class="text-muted">Instructor: ${workshop.instructor}</small></p>
+                                </div>
+                                <div class="card-footer text-center">
+                                    <a href="#" class="btn btn-primary btn-sm">Register Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    workshopList.innerHTML += workshopCard;
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coaching Center - Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-graduation-cap"></i> Coaching Center
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="workshops.html">Workshops</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin.html">Admin</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://via.placeholder.com/1920x650?text=Activity+1" class="d-block w-100" alt="Coaching Center Activity 1">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Empowering Minds</h5>
+                        <p>Join our programs and unlock your full potential.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://via.placeholder.com/1920x650?text=Event+2" class="d-block w-100" alt="Coaching Center Event 2">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Inspiring Futures</h5>
+                        <p>Explore a world of knowledge and opportunities.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://via.placeholder.com/1920x650?text=Learning+3" class="d-block w-100" alt="Coaching Center Learning 3">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Achieving Excellence</h5>
+                        <p>We provide the tools for your success.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </header>
+
+    <section class="container my-5 fade-in-section">
+        <h2 class="section-title">Welcome to Our Coaching Center</h2>
+        <p class="lead text-center mb-5">We are dedicated to providing high-quality coaching and guidance to help students achieve their academic and career goals.</p>
+        <div class="row mt-5">
+            <div class="col-md-4 mb-4">
+                <div class="icon-block">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>Expert Instructors</h3>
+                    <p>Learn from experienced and passionate educators.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="icon-block">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Comprehensive Courses</h3>
+                    <p>A wide range of courses tailored to your needs.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="icon-block">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Supportive Environment</h3>
+                    <p>Foster growth in a collaborative learning space.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 fade-in-section"> <!-- Removed bg-light here as sections now alternate colors -->
+        <div class="container">
+            <h2 class="section-title">What Our Students Say</h2>
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="testimonial-card text-center"> <!-- Removed p-4 as padding is in CSS -->
+                            <p class="lead fst-italic">"The coaching center transformed my understanding of difficult subjects. Highly recommended!"</p>
+                            <footer class="blockquote-footer mt-2">Jane Doe, <cite title="Source Title">Former Student</cite></footer>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="testimonial-card text-center">
+                            <p class="lead fst-italic">"I achieved my dream scores thanks to the dedicated teachers and excellent resources."</p>
+                            <footer class="blockquote-footer mt-2">John Smith, <cite title="Source Title">Current Student</cite></footer>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="testimonial-card text-center">
+                            <p class="lead fst-italic">"A truly supportive environment that pushed me to excel. Grateful for the experience!"</p>
+                            <footer class="blockquote-footer mt-2">Emily White, <cite title="Source Title">Alumni</cite></footer>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2023 Coaching Center. All rights reserved.</p>
+            <p>Designed with <i class="fas fa-heart text-danger"></i> by Abhiraj Singh</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
